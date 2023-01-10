@@ -32,11 +32,12 @@ jobs:
         uses: andstor/file-existence-action@v2
         with:
           files: "ok.txt"
+          fail: "true"
 
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists
-        run: echo All files exists!  
+        run: echo All files exists! 
 
   # Single deploy job since we're just deploying
   deploy:
